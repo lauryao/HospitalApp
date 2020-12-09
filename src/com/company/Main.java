@@ -8,11 +8,12 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome !\n");
-        System.out.print("What do you want to do ?\n"
-                    +"1/ Some music ?\n"
-                    +"2/ Or just a game ?\n"
-                    +"3/ Quit."
-                    +"Selection : "
+        System.out.print("""
+                        What do you want to do ?
+                        1/ Some music ?
+                        2/ Or just a game ?
+                        3/ Quit.
+                        Selection :\s"""
                 );
         String choice = sc.next();
         switch (choice) {
