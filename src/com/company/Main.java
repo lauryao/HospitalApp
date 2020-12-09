@@ -2,8 +2,8 @@ package com.company;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
-        Music music = new Music("Monody","TheFatRat","3min 12");
+        Menu menu = new Menu();
     }
 }
