@@ -8,9 +8,11 @@ public class Music {
     public Music(String name, String author, String time){
 
         BufferedWriter myBfw = null;
+        String path = "";
 
         try{
-            myBfw = new BufferedWriter(new FileWriter(name+".txt"));
+            path = "src/music/";
+            myBfw = new BufferedWriter(new FileWriter(path+name+".txt"));
             myBfw.write("Music Name: "+name+"\n");
             myBfw.write("Author: "+author+"\n");
             myBfw.write("Duration: "+time+"\n");
