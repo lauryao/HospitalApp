@@ -3,6 +3,7 @@ package com.company;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class Music {
     public Music(String name, String author, String time){
@@ -55,13 +56,17 @@ public class Music {
             e.printStackTrace();
         }
     }
-    public static String[] searchMusic(String musiqueToSearch){
-        String[] result = null;
+    public static ArrayList searchMusic(String musiqueToSearch){
+        ArrayList result = new ArrayList();
         String currentName;
         File[] musics = allMusics();
-        for(int i = 0; i<=musics.length-1;i++)
+        for(int i = 0; i<=musics.length-1;i++) {
             currentName = musics[i].getName();
-
+            if (currentName.contains(musiqueToSearch)){
+                result.add(currentName);
+                System.out.println(result);
+            }
+        }
         return result;
     }
 }

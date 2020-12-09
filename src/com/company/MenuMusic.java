@@ -1,6 +1,5 @@
 package com.company;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class MenuMusic {
@@ -41,7 +40,7 @@ public class MenuMusic {
         System.out.println("Enter the music duration : ");
         String time= scanTime.nextLine();
 
-        Music music = new Music(name,author,time);
+        new Music(name,author,time);
 
     }
     public void switchSong() {
@@ -62,8 +61,10 @@ public class MenuMusic {
         switch ((switchSong)) {
             case "Add","1" -> musicDescription();
             case "Delete","2" -> System.out.println("2");
-            case "Listen","3" -> Music.searchMusic("a");
-            case "Back","4" -> { break; }
+            case "Listen","3" -> Music.searchMusic("Toto");
+            case "Back", "4" -> {
+                break;
+            }
             case "Exit","5" -> System.exit(0);
         }
         }
@@ -84,7 +85,7 @@ public class MenuMusic {
                 Selection:\s""");
         String switchSong = scanSwitchPlaylist.nextLine();
         switch ((switchSong)) {
-            case "4" -> { start = false }
+            case "4" -> start = false;
             case "5" -> System.exit(0);
         }
         }
