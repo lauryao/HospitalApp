@@ -1,8 +1,6 @@
 package com.company;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class Music {
     public Music(String name, String author, String time){
@@ -21,13 +19,27 @@ public class Music {
         } catch (IOException e){
             e.printStackTrace();
         } finally {
-            try{
-                if(myBfw != null) {
+            try{ if(myBfw != null) {
                     myBfw.close();
                 }
             } catch (IOException e){
                 e.printStackTrace();
             }
+        }
+    }
+    public static void searchMusic() throws FileNotFoundException {
+        int i;
+        File[] musics = new File("src/music").listFiles();
+        for(i=0;i<=musics.length;i++){
+            readFile(musics[i]);
+        }
+    }
+    public static void readFile(File filePath) throws FileNotFoundException {
+        BufferedReader br = new BufferedReader(new FileReader(filePath));
+        try {
+            System.out.println(br.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
