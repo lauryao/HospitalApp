@@ -62,9 +62,7 @@ public class MenuMusic {
             case "Add","1" -> musicDescription();
             case "Delete","2" -> System.out.println("2");
             case "Listen","3" -> Music.searchMusic("Toto");
-            case "Back", "4" -> {
-                break;
-            }
+            case "Back", "4" -> { start = false; }
             case "Exit","5" -> System.exit(0);
         }
         }
