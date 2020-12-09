@@ -44,30 +44,34 @@ public class MenuMusic {
         Music music = new Music(name,author,time);
 
     }
+                             
     public void switchSong() {
-
+        boolean start = true;
+        while (start) {
         Scanner scanSwitchSong = new Scanner(System.in);
 
-        System.out.print("""
-
-                What do you want to do?
-                1- Add a song
-                2- Delete a song
-                3- Listen a song
-                4- Go back"
-                5- Exit"
-                Selection:\s""");
+        System.out.print("\nWhat do you want to do?"
+                    + "\n1- Add a song"
+                    + "\n2- Delete a song"
+                    + "\n3- Listen a song"
+                    + "\n4- Go back"
+                    + "\n5- Exit"
+                    + "\nSelection: ");
+            
         String switchSong = scanSwitchSong.nextLine();
-        switch ((switchSong)) {
-            case "1" -> musicDescription();
-            case "2" -> System.out.println("2");
-            case "3" -> System.out.println("3");
-            case "4" -> { break; }
-            case "5" -> System.exit(0);
+            switch ((switchSong)) {
+                case "1" -> musicDescription();
+                case "2" -> System.out.println("2");
+                case "3" -> System.out.println("3");
+                case "4" -> { start = false; }
+                case "5" -> System.exit(0);
+            }
         }
-
-    }
+  }
+                         
     public void switchPlaylist() {
+        boolean start = true;
+        while (start) {
         Scanner scanSwitchPlaylist = new Scanner(System.in);
 
         System.out.print("\nWhat do you want to do?"
@@ -77,11 +81,15 @@ public class MenuMusic {
                 + "\n4- Go back"
                 + "\n5- Exit"
                 + "\nSelection: ");
+            
         String switchSong = scanSwitchPlaylist.nextLine();
-        switch ((switchSong)) {
-            case "4" -> { break; }
-            case "5" -> System.exit(0);
+            switch ((switchSong)) {
+                case "1" -> System.out.println("1");
+                case "2" -> System.out.println("2");
+                case "3" -> System.out.println("3");
+                case "4" -> { start = false; }
+                case "5" -> System.exit(0);
+             }
         }
-
     }
 }
