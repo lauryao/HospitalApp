@@ -69,13 +69,15 @@ public class MenuMusic {
     }
     public void switchPlaylist() {
         Scanner scanSwitchPlaylist = new Scanner(System.in);
-        System.out.print("\nWhat do you want to do?"
-                + "\n1- Add a playlist"
-                + "\n2- Delete a playlist"
-                + "\n3- Listen a playlist"
-                + "\n4- Go back"
-                + "\n5- Exit"
-                + "\nSelection: ");
+        System.out.print("""
+
+                What do you want to do?
+                1- Add a playlist
+                2- Delete a playlist
+                3- Listen a playlist
+                4- Go back
+                5- Exit
+                Selection:\s""");
         String switchSong = scanSwitchPlaylist.nextLine();
         switch ((switchSong)) {
             case "4" -> { break; }
