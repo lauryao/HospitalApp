@@ -1,6 +1,8 @@
 package com.company;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Music {
     public Music(String name, String author, String time){
@@ -38,6 +40,13 @@ public class Music {
         BufferedReader br = new BufferedReader(new FileReader(filePath));
         try {
             System.out.println(br.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void deleteFile(File filePath){
+        try{
+            Files.delete(Paths.get(String.valueOf(filePath)));
         } catch (IOException e) {
             e.printStackTrace();
         }
