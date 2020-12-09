@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class GameMenu {
 
-    public static void main(String[] args) {
+    public GameMenu() {
 
         Scanner scanner = new Scanner(System.in);
 
