@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Menu {
-    public Menu() throws FileNotFoundException {
+    public Menu() {
         boolean start = true;
         
         while(start) {
