@@ -18,7 +18,7 @@ public class Menu {
             Scanner scan = new Scanner(System.in);
             String selectOption = scan.nextLine();
             
-            switch ((Scanner)) {
+            switch ((selectOption)) {
                 case "1" -> musicDescription();
                 case "2" -> System.out.println("2");
                 case "3" -> System.out.println("3");
