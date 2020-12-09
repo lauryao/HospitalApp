@@ -35,7 +35,6 @@ public class Menu {
             Scanner scanName = new Scanner(System.in);
             System.out.println("Enter the music name : ");
             String name = scanName.nextLine();
-            PrintWriter writer = new PrintWriter(name);
 
             Scanner scanAuthor = new Scanner(System.in);
             System.out.println("Enter the music author : ");
