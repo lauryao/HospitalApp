@@ -29,9 +29,13 @@ public class Music {
             }
         }
     }
-    public static void searchMusic() throws FileNotFoundException {
+    public static File[] allMusics(){
+        return new File("src/music").listFiles();
+    }
+
+    public static void seeAllMusics() throws FileNotFoundException {
         int i;
-        File[] musics = new File("src/music").listFiles();
+        File[] musics = allMusics();
         for(i=0;i<=musics.length;i++){
             readFile(musics[i]);
         }
@@ -50,5 +54,14 @@ public class Music {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public static String[] searchMusic(String musiqueToSearch){
+        String[] result = null;
+        String currentName;
+        File[] musics = allMusics();
+        for(int i = 0; i<=musics.length-1;i++)
+            currentName = musics[i].getName();
+
+        return result;
     }
 }

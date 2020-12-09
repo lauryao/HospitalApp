@@ -20,9 +20,9 @@ public class MenuMusic {
             String selectOption = scan.nextLine();
 
             switch ((selectOption)) {
-                case "Song" -> switchSong();
-                case "Playlist" -> System.out.println("2");
-                case "Exit" -> start= false;
+                case "Song","1" -> switchSong();
+                case "Playlist","2" -> System.out.println("2");
+                case "Exit","3" -> start= false;
             }
             System.out.print("\n");
         }
@@ -59,17 +59,16 @@ public class MenuMusic {
                 Selection:\s""");
         String switchSong = scanSwitchSong.nextLine();
         switch ((switchSong)) {
-            case "1" -> musicDescription();
-            case "2" -> System.out.println("2");
-            case "3" -> System.out.println("3");
-            case "4" -> { break; }
-            case "5" -> System.exit(0);
+            case "Add","1" -> musicDescription();
+            case "Delete","2" -> System.out.println("2");
+            case "Listen","3" -> Music.searchMusic("a");
+            case "Back","4" -> { break; }
+            case "Exit","5" -> System.exit(0);
         }
 
     }
     public void switchPlaylist() {
         Scanner scanSwitchPlaylist = new Scanner(System.in);
-
         System.out.print("\nWhat do you want to do?"
                 + "\n1- Add a playlist"
                 + "\n2- Delete a playlist"
