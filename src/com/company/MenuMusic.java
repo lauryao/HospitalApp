@@ -49,14 +49,33 @@ public class MenuMusic {
                     + "\n1- Add a song"
                     + "\n2- Delete a song"
                     + "\n3- Listen a song"
-                    + "\n4- Exit"
+                    + "\n4- Go back"
+                    + "\n5- Exit"
                     + "\nSelection: ");
             String switchSong = scanSwitchSong.nextLine();
             switch ((switchSong)) {
                 case "1" -> musicDescription();
                 case "2" -> System.out.println("2");
                 case "3" -> System.out.println("3");
-                case "4" -> System.exit(0);
+                case "4" -> { break; }    
+                case "5" -> System.exit(0);
             }
         }
+         public void switchPlaylist() {
+               Scanner scanSwitchPlaylist = new Scanner(System.in);
+
+               System.out.print("\nWhat do you want to do?"
+                        + "\n1- Add a playlist"
+                        + "\n2- Delete a playlist"
+                        + "\n3- Listen a playlist"
+                        + "\n4- Go back"
+                        + "\n5- Exit"
+                        + "\nSelection: ");
+               String switchSong = scanSwitchPlaylist.nextLine();
+               switch ((switchSong)) {
+                     case "4" -> { break; }
+                     case "5" -> System.exit(0);
+               }
+
+         }
 }
