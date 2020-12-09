@@ -3,7 +3,7 @@ package com.company;
 import java.util.Scanner;
 
 public class Menu {
-    public static void main(String[] args) {
+    public Menu() {
         Scanner scan = new Scanner(System.in);
 
         System.out.print("\nQue voulez faire?"
