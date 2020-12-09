@@ -45,9 +45,10 @@ public class MenuMusic {
 
     }
     public void switchSong() {
-
         Scanner scanSwitchSong = new Scanner(System.in);
+        boolean start = true;
 
+        while(start) {
         System.out.print("""
 
                 What do you want to do?
@@ -65,10 +66,13 @@ public class MenuMusic {
             case "Back","4" -> { break; }
             case "Exit","5" -> System.exit(0);
         }
-
+        }
     }
     public void switchPlaylist() {
         Scanner scanSwitchPlaylist = new Scanner(System.in);
+        boolean start = true;
+
+        while(start) {
         System.out.print("""
 
                 What do you want to do?
@@ -80,9 +84,9 @@ public class MenuMusic {
                 Selection:\s""");
         String switchSong = scanSwitchPlaylist.nextLine();
         switch ((switchSong)) {
-            case "4" -> { break; }
+            case "4" -> { start = false }
             case "5" -> System.exit(0);
         }
-
+        }
     }
 }
