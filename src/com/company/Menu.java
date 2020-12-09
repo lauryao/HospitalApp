@@ -7,13 +7,13 @@ public class Menu {
         boolean start = true;
         
         while(start) {
-            System.out.print("\nQue voulez faire?"
-                    + "\n1- Ajouter une chanson"
-                    + "\n2- Voir une playlist"
-                    + "\n3- Supprimer une chanson"
-                    + "\n4- Supprimer une playlist"
-                    + "\n5- Quitter"
-                    + "\nSéléction: ");
+            System.out.print("\nWhat do you want to do?"
+                    + "\n1- Add a song"
+                    + "\n2- View a playlist"
+                    + "\n3- Delete a song"
+                    + "\n4- Delete a playlist"
+                    + "\n5- Leave"
+                    + "\nSelection: ");
 
             Scanner scan = new Scanner(System.in);
             String selectOption = scan.nextLine();
