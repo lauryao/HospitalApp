@@ -1,9 +1,11 @@
 package com.company;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Menu {
-    public Menu() {
+    public Menu() throws FileNotFoundException {
         boolean start = true;
         
         while(start) {
@@ -30,19 +32,20 @@ public class Menu {
     }
     
         public void musicDescription(){
-        Scanner scanName = new Scanner(System.in);
-        System.out.println("Enter the music name : ");
-        String name = scanName.nextLine();
+            Scanner scanName = new Scanner(System.in);
+            System.out.println("Enter the music name : ");
+            String name = scanName.nextLine();
+            PrintWriter writer = new PrintWriter(name);
 
-        Scanner scanAuthor = new Scanner(System.in);
-        System.out.println("Enter the music author : ");
-        String author = scanAuthor.nextLine();
+            Scanner scanAuthor = new Scanner(System.in);
+            System.out.println("Enter the music author : ");
+            String author = scanAuthor.nextLine();
 
-        Scanner scanTime = new Scanner(System.in);
-        System.out.println("Enter the music duration : ");
-        String time= scanTime.nextLine();
+            Scanner scanTime = new Scanner(System.in);
+            System.out.println("Enter the music duration : ");
+            String time= scanTime.nextLine();
 
-        Music music = new Music(name,author,time);
+            Music music = new Music(name,author,time);
             
     }
 }
