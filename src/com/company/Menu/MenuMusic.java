@@ -7,6 +7,10 @@ import java.io.*;
 import java.util.Scanner;
 
 public class MenuMusic {
+     /**
+     * Choose option between Song, playlist, Exit
+     * boolean start for loop the program while true
+     */
     Scanner scan = new Scanner(System.in);
     public MenuMusic() throws IOException {
         boolean start = true;
@@ -30,7 +34,9 @@ public class MenuMusic {
             System.out.print("\n");
         }
     }
-
+    /**
+     * If the user choose song
+     */
     public void switchSong() throws IOException{
         boolean start = true;
 
@@ -54,6 +60,9 @@ public class MenuMusic {
         }
         }
     }
+     /**
+     * If the user choose playlist
+     */
     public void switchPlaylist() throws FileNotFoundException {
         boolean start = true;
 
@@ -101,6 +110,11 @@ public class MenuMusic {
         }
     }
 
+     /**
+     * To listen a song
+     * "path" is th path of the files
+     * existingSong to read the .txt files
+     */
     public void listenSong() throws IOException {
         String path;
         path = "src/music/";
@@ -124,9 +138,12 @@ public class MenuMusic {
             String listeningMusic = scan.nextLine();
             if ("Stop".equals((listeningMusic))) { break; }
             else if ("Next".equals((listeningMusic))) { nextSong();}
+            else if ("Previous".equals((listeningMusic))) { previousSong();}
         }
     }
-   
+     /**
+     * If the user choose to delete a song
+     */
      public void deleteSong() throws FileNotFoundException {
         String path;
         path = "src/music/";
@@ -142,7 +159,9 @@ public class MenuMusic {
         System.out.println("The song " + deleteSong + "has been deleted");
 
     }
-                         
+     /**
+     * To add a song
+     */                   
     public void musicDescription() {
         Scanner scanName = new Scanner(System.in);
         System.out.println("Enter the music name : ");
@@ -159,12 +178,22 @@ public class MenuMusic {
         new Music(name,author,time);
 
     }   
-                         
+     /**
+     * To navigate to the next song
+     */                     
     public void nextSong() throws FileNotFoundException {
         Music.allMusics();
         int i = 0;
         File[] musics = Music.allMusics();
         Music.readFile(musics[i + 1]);
     }
-                         
+    /**
+     * To navigate to the previous song
+     */
+    public void previousSong() throws FileNotFoundException {
+        Music.allMusics();
+        int i = 0;
+        File[] musics = Music.allMusics();
+        Music.readFile(musics[i - 1]);
+    }               
 }
