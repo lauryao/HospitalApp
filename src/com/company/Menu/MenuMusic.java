@@ -78,12 +78,24 @@ public class MenuMusic throws FileNotFoundException {
      public void listenSong() throws FileNotFoundException {
            System.out.println("Choose a song to listen :");
            Scanner listenSong = new Scanner(System.in);
+         
            Music.seeAllMusics();
            System.out.print("""
            Selection:\s""");
+                            
            String searchMusic = listenSong.nextLine();
-           System.out.println("Your listening to");                 
+           System.out.println("Your listening to"); 
+                            
+           while (listening) {
            Music.searchMusic(searchMusic);
+           Scanner listeningSong = new Scanner(System.in);
+               
+           System.out.println("Write <Stop> to stop listening");
+           String listeningMusic = listeningSong.nextLine();
+           if (listeningMusic.equals("Stop")) {
+                 break;
+             }
+           }    
     }
                          
      
