@@ -7,8 +7,6 @@ public class Forest extends Place{
 
     public void forest(){
 
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("You're now in direction of the Forest");
         System.out.println("You can return to the road: write Road ->");
         String choice = scanner.nextLine();

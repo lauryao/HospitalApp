@@ -7,8 +7,6 @@ public class Valley extends Place{
 
     public void valley(){
 
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("You're now in the middle of a valley Valley");
         System.out.println("You can return to the main road or go in the direction of the hill,");
         System.out.println("Write Road or Hill.");

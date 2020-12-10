@@ -7,8 +7,6 @@ public class Hill extends Place{
 
     public void hill(){
 
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("You're now on a Hill");
         System.out.println("To go in direction of the forest: write 'Forest' ->");
         String choice4 = scanner.nextLine();

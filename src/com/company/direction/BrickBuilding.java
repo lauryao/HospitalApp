@@ -7,8 +7,6 @@ public class BrickBuilding extends Place{
 
     public void brickBuilding(){
 
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("You are nom in direction of Brick building.");
         System.out.println("You can return to the main room: Write 'Road' ->");
         String choice3 = scanner.nextLine();

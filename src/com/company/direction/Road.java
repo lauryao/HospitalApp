@@ -7,7 +7,6 @@ public class Road extends Place{
 
     public void road(){
 
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Write down where you want to go: Forest, Valley, Hill or Brick building ->");
         String direction = scanner.nextLine();
 
