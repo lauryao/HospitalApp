@@ -38,27 +38,28 @@ public class Playlist {
      */
     public void addSongToPlaylist(String music) {
         try {
+            //Will search for the music the user write to
             ArrayList musicFound = Music.searchMusic(music);
 
+            //If it found something it will the song in the sub directory
             if (!musicFound.isEmpty()){
+
+                //because musicFound is an ArrayList which countains Object, we have to transform them
                 BufferedReader br = new BufferedReader(new FileReader((File) musicFound.get(0)));
-
                 String pathPlaylist = playlist.toString();
+                String stringValueMusic = String.valueOf(musicFound.get(0));
 
-                String newLocation = pathPlaylist+"/"+Paths.get(String.valueOf(musicFound.get(0))).getFileName();
+                String newLocation = pathPlaylist+"/"+ Paths.get(stringValueMusic).getFileName();
                 System.out.println("New Location created : "+ newLocation);
                 BufferedWriter bw = new BufferedWriter(new FileWriter(newLocation));
 
                 String line = "";
 
-                while (line != null){
+                //The step where we write in the new file the same content as the original one
+                do {
                     line = br.readLine();
-
-                    if (line != null){
-                        bw.write(line+"\n");
-                        System.out.println(line);
-                    }
-                }
+                    bw.write(line+"\n");
+                } while (line != null);
                 bw.close();
                 System.out.println("Add successfully !");
             }

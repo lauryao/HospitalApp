@@ -11,19 +11,19 @@ public class Hill extends GameMenu{
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Vous etes maintenant dans la direction Hill");
+        System.out.println("You're now on a Hill");
 
-        System.out.println("Pour aller dans la prochaine direction: tapez Forest ->");
+        System.out.println("To go in direction of the forest: write 'Forest' ->");
         String choice4 = scanner.nextLine();
 
         //Choix de la direction
         switch (choice4) {
             case "Forest":
-                System.out.println("Vous etes dans la direction Forest.");
+                System.out.println("You are go right into the forest Forest.");
                 myForest.forest();
                 break;
             default:
-                System.out.println("Vous etes encore dans la direction Hill. Reessayez !");
+                System.out.println("Error. You're not allowed to do that.");
         }
     }
 }

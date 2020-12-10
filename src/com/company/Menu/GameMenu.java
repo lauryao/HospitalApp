@@ -15,23 +15,12 @@ public class GameMenu {
 
         //Recuperation du nom taper par le joueur
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Entrez votre nom -> ");
+        System.out.print("Write your username -> ");
         String nomHero = scanner.nextLine();
 
-        System.out.println("Bienvenu dans Colossal cave " + nomHero + ".");
-
+        System.out.println("Welcome in Colossal Cave  " + nomHero + ".");
 
         Road myRoad = new Road();
         myRoad.road();
-        Forest myForest = new Forest();
-        myForest.forest();
-        Valley myValley = new Valley();
-        myValley.valley();
-        BrickBuilding myBrickBuilding = new BrickBuilding();
-        myBrickBuilding.brickBuilding();
-        Hill myHill = new Hill();
-        myHill.hill();
-
-
     }
 }

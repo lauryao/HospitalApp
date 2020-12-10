@@ -11,19 +11,19 @@ public class Forest extends GameMenu {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Vous etes maintenant dans la direction Forest");
+        System.out.println("You're now in direction of the Forest");
 
-        System.out.println("Vous pouvez revenir sur la route: tapez Road ->");
+        System.out.println("You can return to the road: write Road ->");
         String choice = scanner.nextLine();
 
         //Choix de la direction
         switch (choice) {
             case "Road":
-                System.out.println("Vous etes sur la Road.");
+                System.out.println("You return to the road");
                 myRoad.road();
                 break;
             default:
-                System.out.println("Vous etes encore dans la direction Forest. Reessayez !");
+                System.out.println("Error. You're not allowed to do that.");
         }
     }
 }

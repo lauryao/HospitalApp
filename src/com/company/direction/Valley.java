@@ -12,23 +12,24 @@ public class Valley extends GameMenu{
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Vous etes maintenant dans la direction Valley");
+        System.out.println("You're now in the middle of a valley Valley");
 
-        System.out.println("Vous pouvez retourner sur la route: tapez Road OU aller dans la direction de la colline: tapez Hill ->");
+        System.out.println("You can return to the main road or go in the direction of the hill,");
+        System.out.println("Write Road or Hill.");
         String choice2 = scanner.nextLine();
 
         //Choix de la direction
         switch (choice2) {
             case "Road":
-                System.out.println("Vous etes revenu a la Road.");
+                System.out.println("You have return to the Road.");
                 myRoad.road();
                 break;
             case "Hill":
-                System.out.println("Vous etes dans la direction Hill.");
+                System.out.println("You're now ready to climb the hill Hill.");
                 myHill.hill();
                 break;
             default:
-                System.out.println("Vous etes encore dans la direction Valley. Reessayez !");
+                System.out.println("Error. You're not allowed to do that.");
         }
     }
 }

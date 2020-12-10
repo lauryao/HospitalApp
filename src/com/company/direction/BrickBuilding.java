@@ -11,19 +11,19 @@ public class BrickBuilding extends GameMenu{
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Vous etes maintenant dans la direction Brick building");
+        System.out.println("You are nom in direction of Brick building.");
 
-        System.out.println("Vous pouvez revenir a la piece principal: tapez Road ->");
+        System.out.println("You can return to the main room: Write 'Road' ->");
         String choice3 = scanner.nextLine();
 
         //Choix de la direction
         switch (choice3) {
             case "Road":
-                System.out.println("Vous etes arriver sur la Road.");
+                System.out.println("You have return to the Road.");
                 myRoad.road();
                 break;
             default:
-                System.out.println("Vous etes encore dans la direction Brick building. Reessayez !");
+                System.out.println("Error. You're not allowed to do that.");
         }
     }
 }

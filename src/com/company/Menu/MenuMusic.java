@@ -71,10 +71,14 @@ public class MenuMusic {
         String switchSong = scan.nextLine();
         switch ((switchSong)) {
             case "1" -> addPlaylist();
+            case "2" -> delPlaylist();
             case "4" -> start = false;
             case "5" -> System.exit(0);
         }
         }
+    }
+
+    private void delPlaylist() {
     }
 
     private void addPlaylist() throws FileNotFoundException {

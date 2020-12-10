@@ -13,7 +13,7 @@ public class Road extends GameMenu{
         Hill myHill = new Hill();
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Saisissez votre destination: Forest, Valley, Hill ou Brick building ->");
+        System.out.println("Write down where you want to go: Forest, Valley, Hill or Brick building ->");
         String direction = scanner.nextLine();
 
         //Choix de la direction
@@ -31,7 +31,7 @@ public class Road extends GameMenu{
                 myHill.hill();
                 break;
             default:
-                System.out.println("Cette direction n'existe pas. Veuillez reessayer.");
+                System.out.println("Error. You're not allowed to do that.");
         }
     }
 }
