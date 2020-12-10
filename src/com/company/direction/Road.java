@@ -1,6 +1,6 @@
 package com.company.direction;
 
-public class Road extends Place implements ListPlace{
+public class Road extends Place{
 
     @Override
     public void description() {

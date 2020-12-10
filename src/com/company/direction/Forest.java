@@ -1,6 +1,6 @@
 package com.company.direction;
 
-public class Forest extends Place implements ListPlace{
+public class Forest extends Place{
 
     @Override
     public void description() {

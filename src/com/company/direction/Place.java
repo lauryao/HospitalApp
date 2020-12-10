@@ -3,7 +3,7 @@ package com.company.direction;
 import java.util.Scanner;
 
 
-public abstract class Place {
+public abstract class Place implements ListPlace{
 
     Scanner scanner = new Scanner(System.in);
 

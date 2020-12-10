@@ -1,6 +1,6 @@
 package com.company.direction;
 
-public class BrickBuilding extends Place implements ListPlace{
+public class BrickBuilding extends Place{
 
     @Override
     public void description() {
