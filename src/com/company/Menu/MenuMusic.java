@@ -101,8 +101,24 @@ public class MenuMusic {
             }
         }
     }
+   
+     public void deleteSong() throws FileNotFoundException {
+        String path;
+        path = "src/music/";
+
+        System.out.println("Choose a song to delete :");
+        Music.seeAllMusics();
+        System.out.print("""
+                Selection:\s""");
+        Scanner delete = new Scanner(System.in);
+        String deleteSong = delete.nextLine();
+
+        //Music.readFile(new File(path + deleteSong + ".txt"));
+        Music.deleteFile(new File(path + deleteSong + ".txt"));
+        System.out.println("The song " + deleteSong + "has been deleted");
+
+    }
                          
-     
     public void musicDescription() {
         Scanner scanName = new Scanner(System.in);
         System.out.println("Enter the music name : ");
