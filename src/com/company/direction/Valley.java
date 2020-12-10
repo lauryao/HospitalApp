@@ -25,7 +25,7 @@ public class Valley {
                 myRoad.road();
                 break;
             case "Hill":
-                System.out.println("You're now ready to climb the hill Hill.");
+                System.out.println("You're now ready to climb the Hill.");
                 myHill.hill();
                 break;
             default:

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Playlist {
     File playlist;
     /**
-     * To created a Playlist
+     * To create a Playlist
      * @param name of the playlist
      */
     public Playlist(String name){
@@ -22,6 +22,10 @@ public class Playlist {
         }
     }
 
+    /**
+     * delete a playlist
+     * @param playlist to delete
+     */
     public static void delete(String playlist){
         try {
             Files.delete(Paths.get(playlist));
@@ -47,9 +51,10 @@ public class Playlist {
                 //because musicFound is an ArrayList which countains Object, we have to transform them
                 BufferedReader br = new BufferedReader(new FileReader((File) musicFound.get(0)));
                 String pathPlaylist = playlist.toString();
-                String stringValueMusic = String.valueOf(musicFound.get(0));
 
+                String stringValueMusic = String.valueOf(musicFound.get(0));
                 String newLocation = pathPlaylist+"/"+ Paths.get(stringValueMusic).getFileName();
+
                 System.out.println("New Location created : "+ newLocation);
                 BufferedWriter bw = new BufferedWriter(new FileWriter(newLocation));
 
@@ -71,14 +76,6 @@ public class Playlist {
             System.out.println("Gone Wrong, Music or Playlist does not exist.");
         }
     }
-
-    /*public void addSongToPlaylist(String music) throws IOException {
-
-        File file = new File("test1.txt");
-        File destinationDir = new File("test-directory");
-
-        FileUtils.copyFileToDirectory(file, destinationDir);
-    }*/
 
     /**
      * Delete a music from a Playlist

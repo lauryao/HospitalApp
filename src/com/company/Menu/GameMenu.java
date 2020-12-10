@@ -6,7 +6,7 @@ import com.company.direction.Road;
 
 public class GameMenu {
 
-    public static void main(String[] args) {
+    public GameMenu() {
 
         //Recuperation du nom taper par le joueur
         Scanner scanner = new Scanner(System.in);
@@ -17,5 +17,6 @@ public class GameMenu {
 
         Road myRoad = new Road();
         myRoad.road();
+        System.out.println(myRoad);
     }
 }

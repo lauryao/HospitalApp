@@ -19,7 +19,7 @@ public class Hill {
         //Choix de la direction
         switch (choice4) {
             case "Forest":
-                System.out.println("You are go right into the forest Forest.");
+                System.out.println("You are go right into the Forest.");
                 myForest.forest();
                 break;
             default:

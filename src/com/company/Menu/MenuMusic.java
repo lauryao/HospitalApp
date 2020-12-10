@@ -86,11 +86,19 @@ public class MenuMusic {
     private void addPlaylist() throws FileNotFoundException {
         System.out.println("The name of the new playlist :");
         Playlist playlist = new Playlist(scan.nextLine());
-        System.out.println("Select song you want to add into:");
-        Music.seeAllMusics();
-
-        playlist.addSongToPlaylist(scan.nextLine());
-
+        boolean addSong = true;
+        while (addSong){
+            System.out.println("Select song you want to add into:");
+            Music.seeAllMusics();
+            System.out.println("\nOr quit");
+            String choice = scan.nextLine();
+            if (choice.equals("quit")){
+                addSong = false;
+            }
+            else {
+                playlist.addSongToPlaylist(choice);
+            }
+        }
     }
 
     public void listenSong() throws IOException {
