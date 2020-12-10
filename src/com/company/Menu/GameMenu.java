@@ -2,6 +2,8 @@ package com.company.Menu;
 
 
 import java.util.Scanner;
+
+import com.company.direction.Place;
 import com.company.direction.Road;
 
 public class GameMenu {
@@ -15,8 +17,11 @@ public class GameMenu {
 
         System.out.println("Welcome in Colossal Cave  " + nomHero + ".");
 
-        Road myRoad = new Road();
-        myRoad.road();
-        System.out.println(myRoad);
+        Place place = new Road();
+        while (true){
+            place.description();
+            String direction = scanner.nextLine();
+            place = place.chgDirection(direction);
+        }
     }
 }

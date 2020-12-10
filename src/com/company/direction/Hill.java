@@ -1,24 +1,21 @@
 package com.company.direction;
 
-import java.util.Scanner;
-import com.company.Menu.GameMenu;
+public class Hill extends Place implements ListPlace{
 
-public class Hill extends Place{
-
-    public void hill(){
-
+    @Override
+    public void description() {
         System.out.println("You're now on a Hill");
         System.out.println("To go in direction of the forest: write 'Forest' ->");
-        String choice4 = scanner.nextLine();
+    }
 
+    @Override
+    public Place chgDirection(String direction) {
         //Choix de la direction
-        switch (choice4) {
-            case "Forest":
-                System.out.println("You are go right into the Forest.");
-                myForest.forest();
-                break;
-            default:
-                printError();
+        Place newPlace = null;
+        switch (direction) {
+            case "Forest" -> {newPlace = myForest;}
+            default -> printError();
         }
+        return newPlace;
     }
 }

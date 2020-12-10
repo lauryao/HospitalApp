@@ -1,24 +1,21 @@
 package com.company.direction;
 
-import java.util.Scanner;
-import com.company.Menu.GameMenu;
+public class BrickBuilding extends Place implements ListPlace{
 
-public class BrickBuilding extends Place{
-
-    public void brickBuilding(){
-
+    @Override
+    public void description() {
         System.out.println("You are nom in direction of Brick building.");
         System.out.println("You can return to the main room: Write 'Road' ->");
-        String choice3 = scanner.nextLine();
+    }
 
+    @Override
+    public Place chgDirection(String direction) {
         //Choix de la direction
-        switch (choice3) {
-            case "Road":
-                System.out.println("You have return to the Road.");
-                myRoad.road();
-                break;
-            default:
-                printError();
+        Place newPlace = null;
+        switch (direction) {
+            case "Road" -> {newPlace =myRoad;}
+            default -> printError();
         }
+        return newPlace;
     }
 }
