@@ -1,12 +1,14 @@
 package com.company.music;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Playlist {
-
+    /**
+     * To created a Playlist
+     * @param name of the playlist
+     */
     public Playlist(String name){
         File playlist = new File("/src/music/"+name+"/");
 
@@ -18,18 +20,36 @@ public class Playlist {
             System.out.println ("Already have a playlist with that name.");
         }
     }
+
+    /**
+     * Copying a music file to a sub directory which represents the playlist
+     * @param music, the music to copy
+     * @param playlist, the playlist to add the music
+     */
     public void addSongToPlaylist(String music, String playlist) {
         try {
-            Files.move(Paths.get(music), Paths.get(playlist));
+            BufferedReader br = new BufferedReader(new FileReader(music));
+
+            String newLocation = playlist+Paths.get(music).getFileName();
+            BufferedWriter bw = new BufferedWriter(new FileWriter(newLocation));
+
+            while (!br.readLine().equals("")){
+                bw.write(br.readLine());
+            }
             System.out.println("Add successfully !");
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Gone Wrong, Music or Playlist does not exist.");
         }
     }
-    public void delSongFromPlaylist(String music, String playlist) {
+
+    /**
+     * Delete a music from a Playlist
+     * @param music, the music to delete
+     */
+    public void delSongFromPlaylist(String music) {
         try {
-            Files.move(Paths.get(playlist), Paths.get(music));
+            Files.delete(Paths.get(music));
             System.out.println("Delete Successfully !");
         } catch (IOException e) {
             e.printStackTrace();

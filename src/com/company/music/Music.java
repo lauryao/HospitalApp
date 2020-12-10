@@ -3,13 +3,18 @@ package com.company.music;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 
 public class Music {
+    /**
+     * To initiate a song creation
+     * @param name of the music
+     * @param author of the music
+     * @param time, the duration of the music
+     */
     public Music(String name, String author, String time){
 
         BufferedWriter myBfw = null;
-        String path = "";
+        String path;
 
         try{
             path = "src/music/";
@@ -30,10 +35,19 @@ public class Music {
             }
         }
     }
+
+    /**
+     * To see all music the user create
+     * @return a File[] which contains all the music
+     */
     public static File[] allMusics(){
         return new File("src/music").listFiles();
     }
 
+    /**
+     * Print all music in the directory
+     * @throws FileNotFoundException if there no music
+     */
     public static void seeAllMusics() throws FileNotFoundException {
         int i;
         File[] musics = allMusics();
@@ -41,6 +55,12 @@ public class Music {
             readFile(musics[i]);
         }
     }
+
+    /**
+     * Will read the first line of a music fill, this line contains their name
+     * @param filePath of the music that we need to read
+     * @throws FileNotFoundException if there no file with that name
+     */
     public static void readFile(File filePath) throws FileNotFoundException {
         BufferedReader br = new BufferedReader(new FileReader(filePath));
         try {
@@ -49,6 +69,11 @@ public class Music {
             e.printStackTrace();
         }
     }
+
+    /**
+     * To delete a music
+     * @param filePath of the music we want to delete
+     */
     public static void deleteFile(File filePath){
         try{
             Files.delete(Paths.get(String.valueOf(filePath)));
@@ -56,17 +81,20 @@ public class Music {
             e.printStackTrace();
         }
     }
-    public static ArrayList searchMusic(String musiqueToSearch){
-        ArrayList result = new ArrayList();
+
+    /**
+     * Will search for a music in the directory, with the entry value of the user.
+     * @param musiqueToSearch, a string the user give to search his music
+     */
+    public static void searchMusic(String musiqueToSearch){
+        //ArrayList result = new ArrayList();
         String currentName;
         File[] musics = allMusics();
         for(int i = 0; i<=musics.length-1;i++) {
             currentName = musics[i].getName();
             if (currentName.contains(musiqueToSearch)){
-                result.add(currentName);
-                System.out.println(result);
+                System.out.println(currentName);
             }
         }
-        return result;
     }
 }
