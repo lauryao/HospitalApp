@@ -20,7 +20,7 @@ public class MenuMusic {
 
             switch ((selectOption)) {
                 case "Song","1" -> switchSong();
-                case "Playlist","2" -> System.out.println("2");
+                case "Playlist","2" -> switchPlaylist();
                 case "Exit","3" -> start= false;
             }
             System.out.print("\n");
@@ -61,7 +61,7 @@ public class MenuMusic {
         switch ((switchSong)) {
             case "Add","1" -> musicDescription();
             case "Delete","2" -> System.out.println("2");
-            case "Listen","3" -> Music.searchMusic("Toto");
+            case "Listen","3" -> listenSong();
             case "Back", "4" -> { start = false; }
             case "Exit","5" -> System.exit(0);
         }
@@ -87,5 +87,13 @@ public class MenuMusic {
             case "5" -> System.exit(0);
         }
         }
+    }
+                         
+     public void listenSong() {
+           System.out.println("Choisissez une chanson à écouter :");
+           Scanner listenSong = new Scanner(System.in);
+           String searchMusic = listenSong.nextLine();
+           System.out.println("Vous écoutez :");
+           Music.searchMusic(searchMusic);
     }
 }
