@@ -43,7 +43,7 @@ public class MenuMusic {
                 3- Listen a song
                 4- Go back"
                 5- Exit"
-                Selection:\s""");
+                \nSelection:\s""");
         String switchSong = scan.nextLine();
         switch ((switchSong)) {
             case "Add","1" -> musicDescription();
@@ -65,7 +65,7 @@ public class MenuMusic {
                 3- Listen a playlist
                 4- Go back
                 5- Exit
-                Selection:\s""");
+                \nSelection:\s""");
         String switchSong = scan.nextLine();
         switch ((switchSong)) {
             case "1" -> addPlaylist();
@@ -94,7 +94,7 @@ public class MenuMusic {
         path = "src/music/";
         String line;
         
-        System.out.println("Choose a song to listen :");
+        System.out.println("Choose a song to listen :\n");
 
         Music.seeAllMusics();
         System.out.print("""
@@ -103,15 +103,22 @@ public class MenuMusic {
         String searchMusic = scan.nextLine();
         BufferedReader existingSong = new BufferedReader(new FileReader(path + searchMusic + ".txt"));
 
+        System.out.println("\nYour listening to :\n");
         while (true) {
-            System.out.println("Your listening to");
             while((line = existingSong.readLine()) != null) {
                 System.out.println(line);
             }
-            System.out.println("Write <Stop> to stop listening");
+            System.out.println("\nWrite <Stop> to stop listening");
             String listeningMusic = scan.nextLine();
-            if (listeningMusic.equals("Stop")) {
-                break;
+            switch ((listeningMusic)) {
+                case "Next" -> {
+                    System.out.println("Your listening to :\n");
+                    navigateSong();
+                }
+                case "Stop" -> {
+                    break;
+                }
+
             }
         }
     }
@@ -147,6 +154,14 @@ public class MenuMusic {
 
         new Music(name,author,time);
 
-    }                    
+    }   
+                         
+    public void navigateSong() throws FileNotFoundException {
+        Music.allMusics();
+        int i = 0;
+        File[] musics = Music.allMusics();
+        Music.readFile(musics[i + 1]);
+
+    }
                          
 }
