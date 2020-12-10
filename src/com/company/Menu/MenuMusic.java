@@ -98,11 +98,11 @@ public class MenuMusic {
         path = "src/music/";
         String line;
         
-        System.out.println("Choose a song to listen :\n");
+        System.out.println("Choose a song to listen :");
 
         Music.seeAllMusics();
         System.out.print("""
-           Selection:\s""");
+           \nSelection:\s""");
 
         String searchMusic = scan.nextLine();
         BufferedReader existingSong = new BufferedReader(new FileReader(path + searchMusic + ".txt"));
@@ -114,16 +114,7 @@ public class MenuMusic {
             }
             System.out.println("\nWrite <Stop> to stop listening");
             String listeningMusic = scan.nextLine();
-            switch ((listeningMusic)) {
-                case "Next" -> {
-                    System.out.println("Your listening to :\n");
-                    navigateSong();
-                }
-                case "Stop" -> {
-                    break;
-                }
-
-            }
+            if ("Stop".equals((listeningMusic))) { break; }
         }
     }
    
