@@ -88,8 +88,8 @@ public class Music {
      * Will search for a music in the directory, with the entry value of the user.
      * @param musiqueToSearch, a string the user give to search his music
      */
-    public static ArrayList searchMusic(String musiqueToSearch){
-        ArrayList result = new ArrayList();
+    public static ArrayList<File> searchMusic(String musiqueToSearch){
+        ArrayList<File> result = new ArrayList<>();
         String currentName;
         File[] musics = allMusics();
         for(int i = 0; i<=musics.length-1;i++) {

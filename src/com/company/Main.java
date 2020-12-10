@@ -3,13 +3,12 @@ package com.company;
 import com.company.Menu.GameMenu;
 import com.company.Menu.MenuMusic;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException, FileNotFoundException {
+    public static void main(String[] args) throws IOException{
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome !\n");

@@ -53,7 +53,7 @@ public class Playlist {
                 System.out.println("New Location created : "+ newLocation);
                 BufferedWriter bw = new BufferedWriter(new FileWriter(newLocation));
 
-                String line = "";
+                String line;
 
                 //The step where we write in the new file the same content as the original one
                 do {
@@ -96,7 +96,7 @@ public class Playlist {
     public static File[] allPlaylist(){
         return new File("src/music").listFiles((dir, name) -> name.toLowerCase().endsWith("_"));
     }
-    public static void seeAllPlaylist() throws FileNotFoundException {
+    public static void seeAllPlaylist(){
         int i;
         File[] playlist_ = allPlaylist();
         for(i=0;i<=playlist_.length-1;i++){
