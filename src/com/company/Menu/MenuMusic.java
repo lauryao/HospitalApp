@@ -79,7 +79,6 @@ public class MenuMusic {
            System.out.println("Choose a song to listen :");
            Scanner listenSong = new Scanner(System.in);
            String searchMusic = listenSong.nextLine();
-           System.out.println("Your listening to :");
            Music.searchMusic(searchMusic);
     }
                          
