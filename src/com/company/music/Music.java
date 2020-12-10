@@ -51,7 +51,7 @@ public class Music {
     public static void seeAllMusics() throws FileNotFoundException {
         int i;
         File[] musics = allMusics();
-        for(i=0;i<=musics.length;i++){
+        for(i=0;i<=musics.length-1;i++){
             readFile(musics[i]);
         }
     }
