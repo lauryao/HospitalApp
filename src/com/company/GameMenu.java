@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class GameMenu {
 
-    public GameMenu() {
+    public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -13,16 +13,25 @@ public class GameMenu {
 
         System.out.println("Bienvenu à vous " + nomHero + ".");
 
-        System.out.println("Saisissez votre destination: Nord, Sud, Ouest ou Est ->");
+        System.out.println("Saisissez votre destination: Nord, Sud,Ouest ou Est ->");
         String direction = scanner.nextLine();
 
         //Choix de la direction
         switch (direction) {
-            case "Nord" -> System.out.println("Vous etes maintenant dans la direction Nord");
-            case "Sud" -> System.out.println("Vous etes maintenant dans la direction Sud");
-            case "Ouest" -> System.out.println("Vous etes maintenant dans la direction Ouest");
-            case "Est" -> System.out.println("Vous etes maintenant dans la direction Est");
-            default -> System.out.println("Cette direction n'existe pas. Veuillez reessayer.");
+            case "Nord":
+                North.mainRoom();
+                break;
+            case "Sud":
+                South.mainRoom2();
+                break;
+            case "Est":
+                East.mainRoom3();
+                break;
+            case "Ouest":
+                West.mainRoom4();
+                break;
+            default:
+                System.out.println("Cette direction n'existe pas. Veuillez reessayer.");
         }
     }
 }
