@@ -3,6 +3,7 @@ package com.company.Menu;
 import com.company.music.Music;
 import com.company.music.Playlist;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
@@ -113,7 +114,6 @@ public class MenuMusic {
         Scanner delete = new Scanner(System.in);
         String deleteSong = delete.nextLine();
 
-        //Music.readFile(new File(path + deleteSong + ".txt"));
         Music.deleteFile(new File(path + deleteSong + ".txt"));
         System.out.println("The song " + deleteSong + "has been deleted");
 
