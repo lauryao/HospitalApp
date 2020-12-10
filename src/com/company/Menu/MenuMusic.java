@@ -4,7 +4,7 @@ import com.company.music.Music;
 
 import java.util.Scanner;
 
-public class MenuMusic {
+public class MenuMusic throws FileNotFoundException {
     public MenuMusic()  {
         boolean start = true;
 
@@ -29,7 +29,7 @@ public class MenuMusic {
         }
     }
 
-    public void switchSong() {
+    public void switchSong() throws FileNotFoundException {
         Scanner scanSwitchSong = new Scanner(System.in);
         boolean start = true;
 
@@ -75,7 +75,7 @@ public class MenuMusic {
         }
     }
                          
-     public void listenSong() {
+     public void listenSong() throws FileNotFoundException {
            System.out.println("Choose a song to listen :");
            Scanner listenSong = new Scanner(System.in);
            Music.seeAllMusics();
