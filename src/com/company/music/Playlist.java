@@ -21,6 +21,16 @@ public class Playlist {
         }
     }
 
+    public void delPlaylist(String playlist){
+        try {
+            Files.delete(Paths.get(playlist));
+            System.out.println("Delete Successfully !");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("That playlist name does not exist.");
+        }
+    }
+
     /**
      * Copying a music file to a sub directory which represents the playlist
      * @param music, the music to copy
