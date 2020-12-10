@@ -3,7 +3,7 @@ package com.company.direction;
 import java.util.Scanner;
 import com.company.Menu.GameMenu;
 
-public class Valley extends GameMenu{
+public class Valley {
 
     public void valley(){
 

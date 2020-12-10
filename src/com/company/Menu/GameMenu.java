@@ -2,12 +2,7 @@ package com.company.Menu;
 
 
 import java.util.Scanner;
-import com.company.direction.BrickBuilding;
-import com.company.direction.Forest;
 import com.company.direction.Road;
-import com.company.direction.Hill;
-import com.company.direction.Valley;
-
 
 public class GameMenu {
 

@@ -3,7 +3,7 @@ package com.company.direction;
 import java.util.Scanner;
 import com.company.Menu.GameMenu;
 
-public class Forest extends GameMenu {
+public class Forest{
 
     public void forest(){
 

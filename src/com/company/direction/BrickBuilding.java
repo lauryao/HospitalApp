@@ -3,7 +3,7 @@ package com.company.direction;
 import java.util.Scanner;
 import com.company.Menu.GameMenu;
 
-public class BrickBuilding extends GameMenu{
+public class BrickBuilding{
 
     public void brickBuilding(){
 
