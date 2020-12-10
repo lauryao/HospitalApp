@@ -115,6 +115,7 @@ public class MenuMusic {
             System.out.println("\nWrite <Stop> to stop listening");
             String listeningMusic = scan.nextLine();
             if ("Stop".equals((listeningMusic))) { break; }
+            else if ("Next".equals((listeningMusic))) { nextSong();}
         }
     }
    
@@ -151,12 +152,11 @@ public class MenuMusic {
 
     }   
                          
-    public void navigateSong() throws FileNotFoundException {
+    public void nextSong() throws FileNotFoundException {
         Music.allMusics();
         int i = 0;
         File[] musics = Music.allMusics();
         Music.readFile(musics[i + 1]);
-
     }
                          
 }
