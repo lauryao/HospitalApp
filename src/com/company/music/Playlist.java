@@ -3,6 +3,7 @@ package com.company.music;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class Playlist {
     File playlist;
@@ -12,7 +13,6 @@ public class Playlist {
      */
     public Playlist(String name){
         playlist = new File("src/music/"+name+"/");
-        System.out.println(playlist);
         if (!playlist.exists()) {
             playlist.mkdir();
             System.out.println ("Playlist created !");
@@ -38,19 +38,33 @@ public class Playlist {
      */
     public void addSongToPlaylist(String music) {
         try {
-            BufferedReader br = new BufferedReader(new FileReader(music));
+            ArrayList musicFound = Music.searchMusic(music);
 
-            String pathPlaylist = playlist.toString();
+            if (!musicFound.isEmpty()){
+                BufferedReader br = new BufferedReader(new FileReader((File) musicFound.get(0)));
 
-            String newLocation = pathPlaylist+"/"+Paths.get(music).getFileName();
-            System.out.println("New Location created : "+ newLocation);
-            BufferedWriter bw = new BufferedWriter(new FileWriter(newLocation));
+                String pathPlaylist = playlist.toString();
 
-            while (!br.readLine().equals("")){
-                System.out.println(br.readLine());
-                //bw.write(br.readLine());
+                String newLocation = pathPlaylist+"/"+Paths.get(String.valueOf(musicFound.get(0))).getFileName();
+                System.out.println("New Location created : "+ newLocation);
+                BufferedWriter bw = new BufferedWriter(new FileWriter(newLocation));
+
+                String line = "";
+
+                while (line != null){
+                    line = br.readLine();
+
+                    if (line != null){
+                        bw.write(line+"\n");
+                        System.out.println(line);
+                    }
+                }
+                bw.close();
+                System.out.println("Add successfully !");
             }
-            System.out.println("Add successfully !");
+            else{
+                System.out.println("No music Found");
+            }
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Gone Wrong, Music or Playlist does not exist.");

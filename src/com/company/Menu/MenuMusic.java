@@ -50,12 +50,12 @@ public class MenuMusic {
             case "Add","1" -> musicDescription();
             case "Delete","2" -> System.out.println("2");
             case "Listen","3" -> listenSong();
-            case "Back", "4" -> { start = false; }
+            case "Back", "4" -> start = false;
             case "Exit","5" -> System.exit(0);
         }
         }
     }
-    public void switchPlaylist() {
+    public void switchPlaylist() throws FileNotFoundException {
         boolean start = true;
 
         while(start) {
@@ -77,9 +77,14 @@ public class MenuMusic {
         }
     }
 
-    private void addPlaylist() {
+    private void addPlaylist() throws FileNotFoundException {
         System.out.println("The name of the new playlist :");
         Playlist playlist = new Playlist(scan.nextLine());
+        System.out.println("Select songs you want to add :");
+        Music.seeAllMusics();
+
+        playlist.addSongToPlaylist(scan.nextLine());
+
     }
 
     public void listenSong() throws FileNotFoundException {
