@@ -5,6 +5,7 @@ import com.company.music.Playlist;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MenuMusic {
@@ -32,7 +33,7 @@ public class MenuMusic {
         }
     }
 
-    public void switchSong() throws IOException {
+    public void switchSong() throws IOException, FileNotFoundException {
         boolean start = true;
 
         while(start) {
