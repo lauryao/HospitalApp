@@ -7,12 +7,9 @@ public class Hill extends Place{
 
     public void hill(){
 
-        Forest myForest = new Forest();
-
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("You're now on a Hill");
-
         System.out.println("To go in direction of the forest: write 'Forest' ->");
         String choice4 = scanner.nextLine();
 
@@ -23,7 +20,7 @@ public class Hill extends Place{
                 myForest.forest();
                 break;
             default:
-                System.out.println("Error. You're not allowed to do that.");
+                printError();
         }
     }
 }

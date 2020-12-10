@@ -7,11 +7,6 @@ public class Road extends Place{
 
     public void road(){
 
-        Forest myForest = new Forest();
-        Valley myValley = new Valley();
-        BrickBuilding myBrickBuilding = new BrickBuilding();
-        Hill myHill = new Hill();
-
         Scanner scanner = new Scanner(System.in);
         System.out.println("Write down where you want to go: Forest, Valley, Hill or Brick building ->");
         String direction = scanner.nextLine();
@@ -31,7 +26,7 @@ public class Road extends Place{
                 myHill.hill();
                 break;
             default:
-                System.out.println("Error. You're not allowed to do that.");
+                printError();
         }
     }
 }
