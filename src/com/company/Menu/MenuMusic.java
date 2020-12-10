@@ -22,29 +22,13 @@ public class MenuMusic {
 
             switch ((selectOption)) {
                 case "Song","1" -> switchSong();
-                case "Playlist","2" -> System.out.println("2");
+                case "Playlist","2" -> switchPlaylist();
                 case "Exit","3" -> start= false;
             }
             System.out.print("\n");
         }
     }
 
-    public void musicDescription() {
-        Scanner scanName = new Scanner(System.in);
-        System.out.println("Enter the music name : ");
-        String name = scanName.nextLine();
-
-        Scanner scanAuthor = new Scanner(System.in);
-        System.out.println("Enter the music author : ");
-        String author = scanAuthor.nextLine();
-
-        Scanner scanTime = new Scanner(System.in);
-        System.out.println("Enter the music duration : ");
-        String time= scanTime.nextLine();
-
-        new Music(name,author,time);
-
-    }
     public void switchSong() {
         Scanner scanSwitchSong = new Scanner(System.in);
         boolean start = true;
@@ -63,7 +47,7 @@ public class MenuMusic {
         switch ((switchSong)) {
             case "Add","1" -> musicDescription();
             case "Delete","2" -> System.out.println("2");
-            case "Listen","3" -> Music.searchMusic("Toto");
+            case "Listen","3" -> listenSong();
             case "Back", "4" -> { start = false; }
             case "Exit","5" -> System.exit(0);
         }
@@ -90,4 +74,31 @@ public class MenuMusic {
         }
         }
     }
+                         
+     public void listenSong() {
+           System.out.println("Choose a song to listen :");
+           Scanner listenSong = new Scanner(System.in);
+           String searchMusic = listenSong.nextLine();
+           System.out.println("Your listening to :");
+           Music.searchMusic(searchMusic);
+    }
+                         
+     
+    public void musicDescription() {
+        Scanner scanName = new Scanner(System.in);
+        System.out.println("Enter the music name : ");
+        String name = scanName.nextLine();
+
+        Scanner scanAuthor = new Scanner(System.in);
+        System.out.println("Enter the music author : ");
+        String author = scanAuthor.nextLine();
+
+        Scanner scanTime = new Scanner(System.in);
+        System.out.println("Enter the music duration : ");
+        String time= scanTime.nextLine();
+
+        new Music(name,author,time);
+
+    }                    
+                         
 }
