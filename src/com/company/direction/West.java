@@ -1,10 +1,10 @@
-package com.company;
+package com.company.direction;
 
 import java.util.Scanner;
 
 public class West {
 
-    static void mainRoom4(){
+    public static void mainRoom4(){
 
         Scanner scanner = new Scanner(System.in);
 

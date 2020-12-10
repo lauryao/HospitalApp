@@ -1,25 +1,24 @@
-package com.company;
+package com.company.direction;
 
 import java.util.Scanner;
 
-public class North{
+public class East {
 
-    static void mainRoom(){
+    public static void mainRoom3(){
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Vous etes maintenant dans la direction Nord");
+        System.out.println("Vous etes maintenant dans la direction Est");
 
         System.out.println("Retour a la piece principal: tapez Main room ->");
-        String choice = scanner.nextLine();
+        String choice3 = scanner.nextLine();
 
-        switch (choice) {
+        switch (choice3) {
             case "Main room":
                 System.out.println("Vous etes dans la piece principal.");
                 break;
             default:
-                System.out.println("Vous etes encore dans la direction Nord. Reessayez !");
+                System.out.println("Vous etes encore dans la direction Est. Reessayez !");
         }
     }
-
 }

@@ -1,4 +1,9 @@
-package com.company;
+package com.company.Menu;
+
+import com.company.direction.East;
+import com.company.direction.North;
+import com.company.direction.South;
+import com.company.direction.West;
 
 import java.util.Scanner;
 
@@ -11,7 +16,7 @@ public class GameMenu {
         System.out.print("Entrez votre nom -> ");
         String nomHero = scanner.nextLine();
 
-        System.out.println("Bienvenu à vous " + nomHero + ".");
+        System.out.println("Bienvenue à vous " + nomHero + ".");
 
         System.out.println("Saisissez votre destination: Nord, Sud,Ouest ou Est ->");
         String direction = scanner.nextLine();
