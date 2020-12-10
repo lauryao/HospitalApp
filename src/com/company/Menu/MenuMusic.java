@@ -33,7 +33,7 @@ public class MenuMusic {
         }
     }
 
-    public void switchSong() throws IOException {
+    public void switchSong() throws IOException, FileNotFoundException {
         boolean start = true;
 
         while(start) {
