@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class MenuMusic {
     Scanner scan = new Scanner(System.in);
-    public MenuMusic() throws FileNotFoundException {
+    public MenuMusic() throws IOException {
         boolean start = true;
 
         while(start) {
@@ -32,7 +32,7 @@ public class MenuMusic {
         }
     }
 
-    public void switchSong() throws FileNotFoundException {
+    public void switchSong() throws IOException {
         boolean start = true;
 
         while(start) {
@@ -48,7 +48,7 @@ public class MenuMusic {
         String switchSong = scan.nextLine();
         switch ((switchSong)) {
             case "Add","1" -> musicDescription();
-            case "Delete","2" -> System.out.println("2");
+            case "Delete","2" -> deleteSong();
             case "Listen","3" -> listenSong();
             case "Back", "4" -> start = false;
             case "Exit","5" -> System.exit(0);
@@ -60,7 +60,6 @@ public class MenuMusic {
 
         while(start) {
         System.out.print("""
-
                 What do you want to do?
                 1- Add a playlist
                 2- Delete a playlist
@@ -87,7 +86,11 @@ public class MenuMusic {
 
     }
 
-    public void listenSong() throws FileNotFoundException {
+    public void listenSong() throws IOException {
+        String path;
+        path = "src/music/";
+        String line;
+        
         System.out.println("Choose a song to listen :");
 
         Music.seeAllMusics();
@@ -95,11 +98,13 @@ public class MenuMusic {
            Selection:\s""");
 
         String searchMusic = scan.nextLine();
-        System.out.println("Your listening to");
+        BufferedReader existingSong = new BufferedReader(new FileReader(path + searchMusic + ".txt"));
 
         while (true) {
-            Music.searchMusic(searchMusic);
-
+            System.out.println("Your listening to");
+            while((line = existingSong.readLine()) != null) {
+                System.out.println(line);
+            }
             System.out.println("Write <Stop> to stop listening");
             String listeningMusic = scan.nextLine();
             if (listeningMusic.equals("Stop")) {
