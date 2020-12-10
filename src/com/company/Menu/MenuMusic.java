@@ -31,7 +31,7 @@ public class MenuMusic {
         }
     }
 
-    public void switchSong() throws IOException, FileNotFoundException {
+    public void switchSong() throws IOException{
         boolean start = true;
 
         while(start) {
@@ -76,13 +76,17 @@ public class MenuMusic {
         }
     }
 
-    private void delPlaylist() {
+    private void delPlaylist() throws FileNotFoundException {
+        System.out.println("Which playlist you want to delete ?");
+        Playlist.seeAllPlaylist();
+        String playlistToDel = scan.nextLine();
+        Playlist.delete(playlistToDel);
     }
 
     private void addPlaylist() throws FileNotFoundException {
         System.out.println("The name of the new playlist :");
         Playlist playlist = new Playlist(scan.nextLine());
-        System.out.println("Select songs you want to add :");
+        System.out.println("Select song you want to add into:");
         Music.seeAllMusics();
 
         playlist.addSongToPlaylist(scan.nextLine());

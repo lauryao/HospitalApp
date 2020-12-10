@@ -4,6 +4,7 @@ import com.company.Menu.GameMenu;
 import com.company.Menu.MenuMusic;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {

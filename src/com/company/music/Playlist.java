@@ -12,7 +12,7 @@ public class Playlist {
      * @param name of the playlist
      */
     public Playlist(String name){
-        playlist = new File("src/music/"+name+"/");
+        playlist = new File("src/music/"+name+"_/");
         if (!playlist.exists()) {
             playlist.mkdir();
             System.out.println ("Playlist created !");
@@ -22,7 +22,7 @@ public class Playlist {
         }
     }
 
-    public void delPlaylist(String playlist){
+    public static void delete(String playlist){
         try {
             Files.delete(Paths.get(playlist));
             System.out.println("Delete Successfully !");
@@ -91,6 +91,16 @@ public class Playlist {
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Gone Wrong, Music or Playlist does not exist.");
+        }
+    }
+    public static File[] allPlaylist(){
+        return new File("src/music").listFiles((dir, name) -> name.toLowerCase().endsWith("_"));
+    }
+    public static void seeAllPlaylist() throws FileNotFoundException {
+        int i;
+        File[] playlist_ = allPlaylist();
+        for(i=0;i<=playlist_.length-1;i++){
+            System.out.println(playlist_[i].getName());
         }
     }
 
