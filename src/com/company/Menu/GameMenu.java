@@ -1,42 +1,37 @@
 package com.company.Menu;
 
-import com.company.direction.East;
-import com.company.direction.North;
-import com.company.direction.South;
-import com.company.direction.West;
 
 import java.util.Scanner;
+import com.company.direction.BrickBuilding;
+import com.company.direction.Forest;
+import com.company.direction.Road;
+import com.company.direction.Hill;
+import com.company.direction.Valley;
+
 
 public class GameMenu {
 
     public static void main(String[] args) {
 
+        //Recuperation du nom taper par le joueur
         Scanner scanner = new Scanner(System.in);
-
         System.out.print("Entrez votre nom -> ");
         String nomHero = scanner.nextLine();
 
-        System.out.println("Bienvenue à vous " + nomHero + ".");
+        System.out.println("Bienvenu dans Colossal cave " + nomHero + ".");
 
-        System.out.println("Saisissez votre destination: Nord, Sud,Ouest ou Est ->");
-        String direction = scanner.nextLine();
 
-        //Choix de la direction
-        switch (direction) {
-            case "Nord":
-                North.mainRoom();
-                break;
-            case "Sud":
-                South.mainRoom2();
-                break;
-            case "Est":
-                East.mainRoom3();
-                break;
-            case "Ouest":
-                West.mainRoom4();
-                break;
-            default:
-                System.out.println("Cette direction n'existe pas. Veuillez reessayer.");
-        }
+        Road myRoad = new Road();
+        myRoad.road();
+        Forest myForest = new Forest();
+        myForest.forest();
+        Valley myValley = new Valley();
+        myValley.valley();
+        BrickBuilding myBrickBuilding = new BrickBuilding();
+        myBrickBuilding.brickBuilding();
+        Hill myHill = new Hill();
+        myHill.hill();
+
+
     }
 }
