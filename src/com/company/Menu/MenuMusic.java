@@ -3,9 +3,7 @@ package com.company.Menu;
 import com.company.music.Music;
 import com.company.music.Playlist;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class MenuMusic {
