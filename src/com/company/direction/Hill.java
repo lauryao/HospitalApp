@@ -3,7 +3,7 @@ package com.company.direction;
 import java.util.Scanner;
 import com.company.Menu.GameMenu;
 
-public class Hill {
+public class Hill extends Place{
 
     public void hill(){
 
