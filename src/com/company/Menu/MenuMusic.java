@@ -1,11 +1,14 @@
 package com.company.Menu;
 
 import com.company.music.Music;
+import com.company.music.Playlist;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class MenuMusic throws FileNotFoundException {
-    public MenuMusic()  {
+public class MenuMusic {
+    Scanner scan = new Scanner(System.in);
+    public MenuMusic() throws FileNotFoundException {
         boolean start = true;
 
         while(start) {
@@ -17,7 +20,6 @@ public class MenuMusic throws FileNotFoundException {
                     3 - Exit
                     Selection:\s""");
 
-            Scanner scan = new Scanner(System.in);
             String selectOption = scan.nextLine();
 
             switch ((selectOption)) {
@@ -30,7 +32,6 @@ public class MenuMusic throws FileNotFoundException {
     }
 
     public void switchSong() throws FileNotFoundException {
-        Scanner scanSwitchSong = new Scanner(System.in);
         boolean start = true;
 
         while(start) {
@@ -43,7 +44,7 @@ public class MenuMusic throws FileNotFoundException {
                 4- Go back"
                 5- Exit"
                 Selection:\s""");
-        String switchSong = scanSwitchSong.nextLine();
+        String switchSong = scan.nextLine();
         switch ((switchSong)) {
             case "Add","1" -> musicDescription();
             case "Delete","2" -> System.out.println("2");
@@ -54,7 +55,6 @@ public class MenuMusic throws FileNotFoundException {
         }
     }
     public void switchPlaylist() {
-        Scanner scanSwitchPlaylist = new Scanner(System.in);
         boolean start = true;
 
         while(start) {
@@ -67,35 +67,39 @@ public class MenuMusic throws FileNotFoundException {
                 4- Go back
                 5- Exit
                 Selection:\s""");
-        String switchSong = scanSwitchPlaylist.nextLine();
+        String switchSong = scan.nextLine();
         switch ((switchSong)) {
+            case "1" -> addPlaylist();
             case "4" -> start = false;
             case "5" -> System.exit(0);
         }
         }
     }
-                         
-     public void listenSong() throws FileNotFoundException {
-           System.out.println("Choose a song to listen :");
-           Scanner listenSong = new Scanner(System.in);
-         
-           Music.seeAllMusics();
-           System.out.print("""
+
+    private void addPlaylist() {
+        System.out.println("The name of the new playlist :");
+        Playlist playlist = new Playlist(scan.nextLine());
+    }
+
+    public void listenSong() throws FileNotFoundException {
+        System.out.println("Choose a song to listen :");
+
+        Music.seeAllMusics();
+        System.out.print("""
            Selection:\s""");
-                            
-           String searchMusic = listenSong.nextLine();
-           System.out.println("Your listening to"); 
-                            
-           while (listening) {
-           Music.searchMusic(searchMusic);
-           Scanner listeningSong = new Scanner(System.in);
-               
-           System.out.println("Write <Stop> to stop listening");
-           String listeningMusic = listeningSong.nextLine();
-           if (listeningMusic.equals("Stop")) {
-                 break;
-             }
-           }    
+
+        String searchMusic = scan.nextLine();
+        System.out.println("Your listening to");
+
+        while (true) {
+            Music.searchMusic(searchMusic);
+
+            System.out.println("Write <Stop> to stop listening");
+            String listeningMusic = scan.nextLine();
+            if (listeningMusic.equals("Stop")) {
+                break;
+            }
+        }
     }
                          
      

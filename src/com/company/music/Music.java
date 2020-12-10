@@ -3,6 +3,7 @@ package com.company.music;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class Music {
     /**
@@ -38,10 +39,10 @@ public class Music {
 
     /**
      * To see all music the user create
-     * @return a File[] which contains all the music
+     * @return a File[] which contains all the music.txt
      */
     public static File[] allMusics(){
-        return new File("src/music").listFiles();
+        return new File("src/music").listFiles((dir, name) -> name.toLowerCase().endsWith(".txt"));
     }
 
     /**
@@ -67,6 +68,7 @@ public class Music {
             System.out.println(br.readLine());
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("Failed to read the music");
         }
     }
 
@@ -86,15 +88,17 @@ public class Music {
      * Will search for a music in the directory, with the entry value of the user.
      * @param musiqueToSearch, a string the user give to search his music
      */
-    public static void searchMusic(String musiqueToSearch){
-        //ArrayList result = new ArrayList();
+    public static ArrayList searchMusic(String musiqueToSearch){
+        ArrayList result = new ArrayList();
         String currentName;
         File[] musics = allMusics();
         for(int i = 0; i<=musics.length-1;i++) {
             currentName = musics[i].getName();
             if (currentName.contains(musiqueToSearch)){
-                System.out.println(currentName);
+                System.out.println("Found '"+currentName+"'");
+                result.add(musics[i]);
             }
         }
+        return result;
     }
 }
