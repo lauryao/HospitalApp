@@ -212,15 +212,28 @@ public class MenuMusic {
         Scanner playlistName = new Scanner(System.in);
         System.out.println("Write the name of your playlist :");
         String namePlaylist = playlistName.nextLine();
+        
         int i;
         File[] musics = new File("src/music/" + namePlaylist + "_/").listFiles((dir, name) -> name.toLowerCase().endsWith(".txt"));
         for(i=0; i<= Objects.requireNonNull(musics).length-1; i++){
+            System.out.println("Your listening to :");
             Music.readFile(musics[i]);
             Scanner playlistNext = new Scanner(System.in);
-            System.out.println("Write <Next> to listen the next song");
+             
+                        System.out.print("""
+                     \nWrite <Stop> to stop listening    
+                     Write <Next> to listen the next song
+                     write <Previous> to listen the previous song\n""");
+                                         
             String nameNext= playlistNext.nextLine();
             if (nameNext.equals("Next")){
                 i = i;
+            }
+            else if (nameNext.equals("Previous")) {
+                i = i-2;
+            }
+            else if (nameNext.equals("Stop")) {
+                break;
             }
         }
         System.out.println("\n");
