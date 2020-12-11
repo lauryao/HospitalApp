@@ -83,6 +83,7 @@ public class MenuMusic {
             switch ((switchSong)) {
                 case "1" -> addPlaylist();
                 case "2" -> delPlaylist();
+                case "3" -> listenPlaylist();
                 case "4" -> displayPlaylist();
                 case "5" -> start = false;
                 case "6" -> System.exit(0);
@@ -206,6 +207,25 @@ public class MenuMusic {
         File[] musics = Music.allMusics();
         Music.readFile(musics[i - 1]);
     } 
+                         
+    public void listenPlaylist() throws IOException {
+        Scanner playlistName = new Scanner(System.in);
+        System.out.println("Write the name of your playlist :");
+        String namePlaylist = playlistName.nextLine();
+        int i;
+        File[] musics = new File("src/music/" + namePlaylist + "_/").listFiles((dir, name) -> name.toLowerCase().endsWith(".txt"));
+        for(i=0; i<= Objects.requireNonNull(musics).length-1; i++){
+            Music.readFile(musics[i]);
+            Scanner playlistNext = new Scanner(System.in);
+            System.out.println("Write <Next> to listen the next song");
+            String nameNext= playlistNext.nextLine();
+            if (nameNext.equals("Next")){
+                i = i;
+            }
+        }
+        System.out.println("\n");
+    }
+                         
      public void displayPlaylist() throws IOException {
         Scanner playlistName = new Scanner(System.in);
         System.out.println("Write the name of your playlist :");
