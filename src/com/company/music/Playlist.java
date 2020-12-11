@@ -43,13 +43,13 @@ public class Playlist {
     public void addSongToPlaylist(String music) {
         try {
             //Will search for the music the user write to
-            ArrayList musicFound = Music.searchMusic(music);
+            ArrayList<File> musicFound = Music.searchMusic(music);
 
             //If it found something it will the song in the sub directory
             if (!musicFound.isEmpty()){
 
                 //because musicFound is an ArrayList which countains Object, we have to transform them
-                BufferedReader br = new BufferedReader(new FileReader((File) musicFound.get(0)));
+                BufferedReader br = new BufferedReader(new FileReader(musicFound.get(0)));
                 String pathPlaylist = playlist.toString();
 
                 String stringValueMusic = String.valueOf(musicFound.get(0));
