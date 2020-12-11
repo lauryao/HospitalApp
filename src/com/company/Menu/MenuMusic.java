@@ -4,6 +4,7 @@ import com.company.music.Music;
 import com.company.music.Playlist;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -133,8 +134,9 @@ public class MenuMusic {
            
            Selection:\s""");
 
-        String searchMusic = scan.nextLine();
-        BufferedReader existingSong = new BufferedReader(new FileReader(path + searchMusic + ".txt"));
+        ArrayList<File> searchMusic = Music.searchMusic(scan.nextLine());
+
+        BufferedReader existingSong = new BufferedReader(new FileReader(searchMusic.get(0).toString()));
 
         System.out.println("\nYour listening to :\n");
         while (true) {
@@ -143,9 +145,11 @@ public class MenuMusic {
             }
             System.out.println();
                          System.out.print("""
-                     \nWrite <Stop> to stop listening    
+                     Write <Stop> to stop listening    
                      Write <Next> to listen the next song
-                     write <Previous> to listen the previous song\n""");
+                     write <Previous> to listen the previous song
+                     
+                     """);
             String listeningMusic = scan.nextLine();
             if ("Stop".equals((listeningMusic))) { break; }
             else if ("Next".equals((listeningMusic))) { nextSong();}
