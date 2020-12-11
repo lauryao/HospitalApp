@@ -4,6 +4,7 @@ import com.company.music.Music;
 import com.company.music.Playlist;
 
 import java.io.*;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class MenuMusic {
@@ -64,7 +65,7 @@ public class MenuMusic {
      /**
      * If the user choose playlist
      */
-    public void switchPlaylist() throws FileNotFoundException {
+    public void switchPlaylist() throws IOException {
         boolean start = true;
 
         while(start) {
@@ -73,16 +74,18 @@ public class MenuMusic {
                     1- Add a playlist
                     2- Delete a playlist
                     3- Listen a playlist
-                    4- Go back
-                    5- Exit
+                    4- Display a playlist
+                    5- Go back
+                    6- Exit
                     
                     Selection:\s""");
             String switchSong = scan.nextLine();
             switch ((switchSong)) {
                 case "1" -> addPlaylist();
                 case "2" -> delPlaylist();
-                case "4" -> start = false;
-                case "5" -> System.exit(0);
+                case "4" -> displayPlaylist();
+                case "5" -> start = false;
+                case "6" -> System.exit(0);
             }
         }
     }
@@ -198,5 +201,16 @@ public class MenuMusic {
         int i = 0;
         File[] musics = Music.allMusics();
         Music.readFile(musics[i - 1]);
-    }               
+    } 
+     public void displayPlaylist() throws IOException {
+        Scanner playlistName = new Scanner(System.in);
+        System.out.println("Write the name of your playlist :");
+        String namePlaylist = playlistName.nextLine();
+        int i;
+        File[] musics = new File("src/music/" + namePlaylist + "_/").listFiles((dir, name) -> name.toLowerCase().endsWith(".txt"));
+        for(i=0; i<= Objects.requireNonNull(musics).length-1; i++){
+            Music.readFile(musics[i]);
+        }
+        System.out.println("\n");
+    }
 }
