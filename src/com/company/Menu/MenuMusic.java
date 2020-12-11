@@ -123,8 +123,6 @@ public class MenuMusic {
      * existingSong to read the .txt files
      */
     public void listenSong() throws IOException {
-        String path;
-        path = "src/music/";
         String line;
         
         System.out.println("Choose a song to listen :");
@@ -219,25 +217,28 @@ public class MenuMusic {
         
         int i;
         File[] musics = new File("src/music/" + namePlaylist + "_/").listFiles((dir, name) -> name.toLowerCase().endsWith(".txt"));
+        label:
         for(i=0; i<= Objects.requireNonNull(musics).length-1; i++){
             System.out.println("Your listening to :");
             Music.readFile(musics[i]);
             Scanner playlistNext = new Scanner(System.in);
              
                         System.out.print("""
-                     \nWrite <Stop> to stop listening    
+                     
+                     Write <Stop> to stop listening    
                      Write <Next> to listen the next song
-                     write <Previous> to listen the previous song\n""");
+                     write <Previous> to listen the previous song
+                     """);
                                          
             String nameNext= playlistNext.nextLine();
-            if (nameNext.equals("Next")){
-                i = i;
-            }
-            else if (nameNext.equals("Previous")) {
-                i = i-2;
-            }
-            else if (nameNext.equals("Stop")) {
-                break;
+            switch (nameNext) {
+                case "Next":
+                    break;
+                case "Previous":
+                    i = i - 2;
+                    break;
+                case "Stop":
+                    break label;
             }
         }
         System.out.println("\n");
