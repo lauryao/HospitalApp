@@ -11,7 +11,7 @@ public class Valley extends Place{
 
     @Override
     public Place chgDirection(String direction) {
-        //Choix de la direction
+        //Change the direction
         Place newPlace = null;
         switch (direction) {
             case "Road" -> {newPlace = myRoad;}
