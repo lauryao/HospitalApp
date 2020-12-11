@@ -140,7 +140,11 @@ public class MenuMusic {
             while((line = existingSong.readLine()) != null) {
                 System.out.println(line);
             }
-            System.out.println("\nWrite <Stop> to stop listening");
+            System.out.println();
+                         System.out.print("""
+                     \nWrite <Stop> to stop listening    
+                     Write <Next> to listen the next song
+                     write <Previous> to listen the previous song\n""");
             String listeningMusic = scan.nextLine();
             if ("Stop".equals((listeningMusic))) { break; }
             else if ("Next".equals((listeningMusic))) { nextSong();}
