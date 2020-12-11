@@ -41,23 +41,23 @@ public class MenuMusic {
         boolean start = true;
 
         while(start) {
-        System.out.print("""
-
-                What do you want to do?
-                1- Add a song
-                2- Delete a song
-                3- Listen a song
-                4- Go back"
-                5- Exit"
-                \nSelection:\s""");
-        String switchSong = scan.nextLine();
-        switch ((switchSong)) {
-            case "Add","1" -> musicDescription();
-            case "Delete","2" -> deleteSong();
-            case "Listen","3" -> listenSong();
-            case "Back", "4" -> start = false;
-            case "Exit","5" -> System.exit(0);
-        }
+            System.out.print("""
+    
+                    What do you want to do?
+                    1- Add a song
+                    2- Delete a song
+                    3- Listen a song
+                    4- Go back"
+                    5- Exit"
+                    \nSelection:\s""");
+            String switchSong = scan.nextLine();
+            switch ((switchSong)) {
+                case "Add","1" -> musicDescription();
+                case "Delete","2" -> deleteSong();
+                case "Listen","3" -> listenSong();
+                case "Back", "4" -> start = false;
+                case "Exit","5" -> System.exit(0);
+            }
         }
     }
      /**
@@ -67,21 +67,21 @@ public class MenuMusic {
         boolean start = true;
 
         while(start) {
-        System.out.print("""
-                What do you want to do?
-                1- Add a playlist
-                2- Delete a playlist
-                3- Listen a playlist
-                4- Go back
-                5- Exit
-                \nSelection:\s""");
-        String switchSong = scan.nextLine();
-        switch ((switchSong)) {
-            case "1" -> addPlaylist();
-            case "2" -> delPlaylist();
-            case "4" -> start = false;
-            case "5" -> System.exit(0);
-        }
+            System.out.print("""
+                    What do you want to do?
+                    1- Add a playlist
+                    2- Delete a playlist
+                    3- Listen a playlist
+                    4- Go back
+                    5- Exit
+                    \nSelection:\s""");
+            String switchSong = scan.nextLine();
+            switch ((switchSong)) {
+                case "1" -> addPlaylist();
+                case "2" -> delPlaylist();
+                case "4" -> start = false;
+                case "5" -> System.exit(0);
+            }
         }
     }
 
