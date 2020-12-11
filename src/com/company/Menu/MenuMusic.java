@@ -49,7 +49,8 @@ public class MenuMusic {
                     3- Listen a song
                     4- Go back"
                     5- Exit"
-                    \nSelection:\s""");
+                    
+                    Selection:\s""");
             String switchSong = scan.nextLine();
             switch ((switchSong)) {
                 case "Add","1" -> musicDescription();
@@ -74,7 +75,8 @@ public class MenuMusic {
                     3- Listen a playlist
                     4- Go back
                     5- Exit
-                    \nSelection:\s""");
+                    
+                    Selection:\s""");
             String switchSong = scan.nextLine();
             switch ((switchSong)) {
                 case "1" -> addPlaylist();
@@ -85,7 +87,7 @@ public class MenuMusic {
         }
     }
 
-    private void delPlaylist() throws FileNotFoundException {
+    private void delPlaylist() {
         System.out.println("Which playlist you want to delete ?");
         Playlist.seeAllPlaylist();
         String playlistToDel = scan.nextLine();
@@ -124,7 +126,8 @@ public class MenuMusic {
 
         Music.seeAllMusics();
         System.out.print("""
-           \nSelection:\s""");
+           
+           Selection:\s""");
 
         String searchMusic = scan.nextLine();
         BufferedReader existingSong = new BufferedReader(new FileReader(path + searchMusic + ".txt"));
